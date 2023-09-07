@@ -9,5 +9,5 @@ int main(void)
 	char n[] = "\"Programming is like building a multilingual puzzle";
 
 	puts(n);
-	0;
+	0
 }
