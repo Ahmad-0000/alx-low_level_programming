@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * A special comment
+ * main - This style is driving me mad
 */
 int main(void)
 {
