@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int main()
+/*A comment in the 3d line*/
+int main(void)
 {
-	/*This is a comment*/
 	printf("with proper grammar, but the outcome is a piece of art,\n");
-	return 0;
+	return (0);
 }
