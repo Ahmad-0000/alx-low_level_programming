@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - This style is driving me mad
- * Return: This is the war
+ * Return: is a return
 */
 int main(void)
 {

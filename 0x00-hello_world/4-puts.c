@@ -2,11 +2,12 @@
 
 /**
  * main - my main function
- * Return: The description of the (return) statement
+ * Return: is a return
 */
 int main(void)
 {
-	char n[] = "Programming is like bulding a multilingual puzzle";
+	char n[] = "\"Programming is like building a multilingual puzzle";
+
 	puts(n);
 	return (0);
 }
