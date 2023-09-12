@@ -3,11 +3,11 @@
 
 int main(void)
 {
-	printing_alphabet();
+	print_alphabet();
 	return (0);
 }
 
-void printing_alphabet(void)
+void print_alphabet(void)
 {	
 	char a;
 
