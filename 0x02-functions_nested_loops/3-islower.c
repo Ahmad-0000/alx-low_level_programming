@@ -1,7 +1,9 @@
 #include "main.h"
 /*
  * _islower - does what it is supposed to do
+ *
  * Return: is the return.
+ * @c: is a parameter.
  */
 int _islower(int c)
 {
