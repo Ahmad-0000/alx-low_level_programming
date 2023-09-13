@@ -1,2 +1,0 @@
-#!/bin/bash
-gcc -S $(echo $CFILE) -o $(echo $CFILE | tr c s)

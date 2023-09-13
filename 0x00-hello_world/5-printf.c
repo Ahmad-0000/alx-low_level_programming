@@ -1,6 +1,6 @@
 #include <stdio.h>
 /**
- * main - This style is driving me mad
+ * main - is my main function.
  * Return: is a return
 */
 int main(void)
