@@ -2,6 +2,8 @@
 /*
  * main - is my main funcion
  *
+ * Description: is a description.
+ *
  * Return: returns the main function valuel
 */
 int main(void)
