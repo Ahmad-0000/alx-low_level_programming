@@ -1,4 +1,8 @@
 #include "main.h"
+/**
+ * _isdigit - is a function
+ * Return: is the function value
+ */
 
 int _isdigit(int c)
 {
