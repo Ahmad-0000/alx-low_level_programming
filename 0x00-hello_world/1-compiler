@@ -1,2 +1,3 @@
 #!/bin/bash
-gcc -c $(echo $CFILE) -o $(echo $CFILE | tr c o)
+alias ec='ec'
+gcc -c $(ec $CFILE) -o $(ec $CFILE | tr c o)

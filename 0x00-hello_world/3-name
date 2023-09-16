@@ -1,2 +1,3 @@
 #!/bin/bash
-gcc $(echo $CFILE) -o cisfun
+alias ec='echo'
+gcc $(ec $CFILE) -o cisfun

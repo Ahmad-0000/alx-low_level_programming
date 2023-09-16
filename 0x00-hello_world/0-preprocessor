@@ -1,2 +1,3 @@
 #!/bin/bash
-gcc -E $(echo $CFILE) -o c
+alias ec='echo'
+gcc -E $(ec $CFILE) -o c
