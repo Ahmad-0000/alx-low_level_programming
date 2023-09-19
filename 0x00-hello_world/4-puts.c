@@ -9,5 +9,6 @@ int main(void)
 	char n[] = "\"Programming is like building a multilingual puzzle";
 
 	puts(n);
-	return (0);
+	// It seems like when using (puts), the program automatically
+		// returns 0 .
 }
