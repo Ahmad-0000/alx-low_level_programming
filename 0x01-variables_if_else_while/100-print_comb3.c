@@ -9,19 +9,19 @@ int main(void)
 	int a;
 	int b;
 
-	for (a = 0; a <= 9; a++)
-	{
-		putchar(a + '0');
-		for (b )
-		if (a < 9)
+	a = 0;
+	while (a < 9)
+	{	
+		b = a + 1;
+		while (b <= 9)
 		{
+			putchar(a + '0');
+			putchar(b + '0');
 			putchar(',');
 			putchar(' ');
-		}
-		else
-		{
-		}
+			b++;
+		}	
+		a++;
 	}
 	putchar('\n');
-	return (0);
 }
