@@ -2,6 +2,7 @@
 /**
  * print_last_digit - is my function to print the last digit of a number
  * @i: is the number to print last digit for
+ * Return: is to return a value
  */
 
 int print_last_digit(int i)
@@ -19,6 +20,5 @@ int print_last_digit(int i)
 	{
 		_putchar(i % 10 + '0');
 	}
-	_putchar('\n');
 	return (9);
 }
