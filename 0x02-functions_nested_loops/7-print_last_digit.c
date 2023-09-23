@@ -19,7 +19,7 @@ int print_last_digit(int i)
 	}
 	else if (i == INT_MIN)
 	{
-		_putchar('8');
+		_putchar(8 + '0');
 	}
 	else
 	{
