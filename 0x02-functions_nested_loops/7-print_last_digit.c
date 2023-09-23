@@ -16,9 +16,16 @@ int print_last_digit(int i)
 	{
 		_putchar('0');
 	}
+	else if (i == INT_MIN)
+	{
+		_putchar('8');
+	}
 	else
 	{
 		_putchar(i % 10 + '0');
 	}
-	return (i % 10);
+	if (i == INT_MIN)
+		return (8);
+	else
+		return (i % 10);
 }
