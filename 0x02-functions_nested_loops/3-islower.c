@@ -1,10 +1,9 @@
 #include "main.h"
+#include <stdio.h>
 /*
- * _islower - does what it is supposed to do
- *
- * @c: is a parameter.
- *
- * Return: is a return
+ * _islower - is function to determine whether the letter is lowercase or no
+ * @c: is the letter to check
+ * Return: is to return the value
  */
 int _islower(int c)
 {
