@@ -20,4 +20,5 @@ int print_last_digit(int i)
 		_putchar(i % 10 + '0');
 	}
 	_putchar('\n');
+	return (9);
 }
