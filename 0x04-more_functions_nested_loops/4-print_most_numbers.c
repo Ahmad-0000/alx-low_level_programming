@@ -2,7 +2,7 @@
 /**
  * print_most_numbers - is a function to print 8 numbers
  */
-void printing(void)
+void print_most_numbers(void)
 {
 	int i = 0;
 
