@@ -13,7 +13,7 @@ void rev_string(char *s)
 		i++;
 	}
 	i--;
-	char *p, *tmp;
+	char *p;
 
 	p = s;
 	n = 0;
@@ -23,6 +23,8 @@ void rev_string(char *s)
 		n++;
 		i--;
 	}
+	char *tmp;
+
 	f = 0;
 	while (tmp[f] != '\0')
 	{
