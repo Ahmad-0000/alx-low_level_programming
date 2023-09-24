@@ -19,7 +19,7 @@ void puts2(char *str)
 	while (str[n] != '\0')
 	{
 		tmp = str[n];
-		_putchar(tmp);
+		_putchar(tmp + 48);
 		n += 2;
 	}
 	_putchar('\n');
