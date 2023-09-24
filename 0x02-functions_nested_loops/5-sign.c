@@ -1,8 +1,8 @@
 #include "main.h"
 /**
- * print_sign - is a function to print the sign of a number or 0
- * @n: is the number
- * Retunr: is to return a value
+ * print_sign - is a function to print the sign for a number or 0
+ * @n: is the number to print the sign for
+ * Return: is -1 when negative +1 when positive 0 when 0
  */
 int print_sign(int n)
 {
