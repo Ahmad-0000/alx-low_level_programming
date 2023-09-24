@@ -1,9 +1,8 @@
 #include "main.h"
-#include <stdio.h>
-/*
- * _islower - is function to determine whether the letter is lowercase or no
- * @c: is the letter to check
- * Return: is to return the value
+/**
+ * _islower - is a function to determine whether a letter is a lowercase or no
+ * @c: is the decimal value of the letter
+ * Return: is to return 1 when yes or 0 when no
  */
 int _islower(int c)
 {
