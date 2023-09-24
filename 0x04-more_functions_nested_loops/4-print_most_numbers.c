@@ -13,4 +13,5 @@ void printing(void)
 		else
 			_putchar(i + 48);
 	}
+	_putchar('\n');
 }
