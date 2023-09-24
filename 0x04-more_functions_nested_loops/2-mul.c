@@ -4,8 +4,9 @@
  * @a: is the 1st number
  * @b: is the 2nd number
  *
+ * Return: is to return value
  */
 int mul(int a,int b)
 {
-	int i = a * b;
+	return (a * b);
 }
