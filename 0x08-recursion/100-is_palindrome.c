@@ -31,7 +31,7 @@ int myFun(char *c, int i)
 {
 	if (c[i] == '\0')
 		return (0);
-		i = 1 + myFun(c, i + 1);
+	i = 1 + myFun(c, i + 1);
 	return (i);
 }
 /**
