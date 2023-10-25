@@ -11,6 +11,8 @@ int myFun(int myNum, int i)
 {
 	if (myNum == 1 || myNum == 4)
 		return (0);
+	else if (myNum < 0)
+		return (0);
 	else if (myNum == 2 || myNum == 3)
 		return (1);
 	else if (i >= (myNum / 2))
