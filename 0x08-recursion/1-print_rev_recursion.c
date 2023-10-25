@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * _print_rev_recursion - is a function to print a string in reverse
  * using recursion.
