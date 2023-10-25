@@ -3,7 +3,7 @@
  * _putting - is a function to print a string using recursion.
  * @c: is a pointer to the string to be put.
  */
-void _putting(char *c)
+void _puts_recursion(char *c)
 {
 	if (*c == '\0')
 	{
@@ -11,5 +11,5 @@ void _putting(char *c)
 		return;
 	}
 	_putchar(*c);
-	_putting(c + 1);
+	_puts_recursion(c + 1);
 }
