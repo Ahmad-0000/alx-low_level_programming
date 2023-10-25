@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _putting - is a function to print a string using recursion.
+ * _puts_recursion - is a function to print a string using recursion.
  * @c: is a pointer to the string to be put.
  */
 void _puts_recursion(char *c)
