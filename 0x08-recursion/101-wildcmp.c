@@ -52,11 +52,11 @@ int wildcmp(char *s1, char *s2)
 		return (wildcmp(s1 + 1, s2 + 1));
 	else if (*s2 == '*')
 	{
-			i = myFun2(s1, 0);
-			s2 = myFun(s2);
-			j = myFun2(s2, 0);
-			s1 += (i - j);
-			return (wildcmp(s1, s2));
+		i = myFun2(s1, 0);
+		s2 = myFun(s2);
+		j = myFun2(s2, 0);
+		s1 += (i - j);
+		return (wildcmp(s1, s2));
 	}
 	else
 		return (0);
