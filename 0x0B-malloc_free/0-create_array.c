@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdlib.h>
-char *creating_array(unsigned int theSize, char c)
+char *create_array(unsigned int theSize, char c)
 {
 	char *s;
 	unsigned int i;
