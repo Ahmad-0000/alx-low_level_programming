@@ -5,13 +5,15 @@
  *	of numbers dynamically using malloc
  * @width: is the width of the array
  * @height: is the height of the array
- * Return: is to return NULL when faliure, or
- *	a pointer to the 2D array when seccuss.
+ * Return: is to return NULL when faliure or either width
+ * of heigth is 0 or less, or a pointer to the 2D array when seccuss.
  */
 int **alloc_grid(int width, int height)
 {
 	int **p, i, j;
 
+	if (width <= 0 || height <= 0)
+		return (NULL);
 	p = (int **)malloc(sizeof(int *) * height);
 	if (p == NULL)
 		return (NULL);
