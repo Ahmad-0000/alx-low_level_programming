@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "main.h"
+#include <stdio.h>
 /**
  * myFun - is a function to fill the 2D array that was
  *	allocated dynamically using malloc with the correct
@@ -16,8 +17,9 @@ char **myFun(char **p, char *str, int theWords, int maxLen)
 {
 	int i, j, c = 0, inWord = 0;
 
-	for (i = 0; i < theWords - 1; i++)
-		for (j = 0; j < maxLen - 1 ; c++)
+	for (i = 0; p[i] != NULL ; i++)
+	{
+		for (j = 0; j < (maxLen) ; c++)
 		{
 			if (str[c] != ' ' && str[c] != '\t' && inWord == 0)
 			{
@@ -35,10 +37,10 @@ char **myFun(char **p, char *str, int theWords, int maxLen)
 				p[i][j] = '\0';
 				inWord  = 0;
 				c++;
-				j++;
 				break;
 			}
 		}
+	}
 	return (p);
 }
 /**
@@ -53,7 +55,7 @@ char **strtow(char *str)
 	char **p;
 	int i, inWord = 0, theWords = 0, j, maxLen = 0, theLen = 0;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL || *str == '\0' || *str == ' ')
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
