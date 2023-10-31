@@ -7,13 +7,11 @@
  *	order of the characters
  * @p: is a double pointer to the 2D array
  * @str: is the string to be cut
- * @theWords: is the number of the words to be filled in
- *	the array (the last one is a NULL pointer)
  * @maxLen: is the length of the longest word in the array
  *	(the trailing 1 is due to the null terminator)
  * Return: is to return a double pointer to the filled 2D array
  */
-char **myFun(char **p, char *str, int theWords, int maxLen)
+char **myFun(char **p, char *str, int maxLen)
 {
 	int i, j, c = 0, inWord = 0;
 
@@ -85,5 +83,5 @@ char **strtow(char *str)
 		if (p[j] == NULL && (j + 1 != theWords))
 			return (NULL);
 	}
-	return (myFun(p, str, theWords, maxLen));
+	return (myFun(p, str, maxLen));
 }
