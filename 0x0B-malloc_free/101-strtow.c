@@ -50,10 +50,10 @@ char **myFun(char **p, char *str, int theWords, int maxLen)
  */
 char **strtow(char *str)
 {
-	char **p, *pp;
+	char **p;
 	int i, inWord = 0, theWords = 0, j, maxLen = 0, theLen = 0;
 
-	if (str == NULL || str == "")
+	if (str == NULL || *str == '\0')
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
