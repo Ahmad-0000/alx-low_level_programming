@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdlib.h>
 /**
  * array_range - is a function to make an array
  *	from the elements min (included) to max (included)
