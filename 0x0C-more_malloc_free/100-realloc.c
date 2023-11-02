@@ -11,7 +11,7 @@
  * Return: is to return a pointer as illustrated in the
  *	code below
  */
-void *_realloc(void *ptr, int theOldSize, int theNewSize)
+void *_realloc(void *ptr, unsigned int theOldSize, unsigned int theNewSize)
 {
 	char *p, *pp = ptr;
 	int i, theLim = theOldSize;
