@@ -72,7 +72,7 @@ void printing(long int i)
 	}
 	p = malloc(sizeof(*p) * (j + 1));
 	if (p == NULL)
-		exit(98);
+		e();
 	tmp = i;
 	j = 0;
 	while (tmp)
