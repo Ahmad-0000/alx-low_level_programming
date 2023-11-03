@@ -39,9 +39,9 @@ int isdigits_(char **p)
  * @p: is a pointer to the array in which the 2 arguments are
  * Return: is to return the result of the multiplication
  */
-int m(char **p)
+long int m(char **p)
 {
-	int j, f = 0, s = 0;
+	long int j, f = 0, s = 0;
 
 	for (j = 0; p[1][j] != '\0'; j++)
 	{
@@ -60,9 +60,9 @@ int m(char **p)
  *	of the two arguments
  * @i: is the result of the multiplication.
  */
-void printing(int i)
+void printing(long int i)
 {
-	int j = 0, tmp = i;
+	long j = 0, tmp = i;
 	char *p;
 
 	while (tmp)
@@ -71,6 +71,8 @@ void printing(int i)
 		j++;
 	}
 	p = malloc(sizeof(*p) * (j + 1));
+	if (p == NULL)
+		exit(98);
 	tmp = i;
 	j = 0;
 	while (tmp)
@@ -93,7 +95,7 @@ void printing(int i)
  */
 int main(int argc, char *argv[])
 {
-	int i;
+	long int i;
 
 	if (argc != 3)
 		e();
