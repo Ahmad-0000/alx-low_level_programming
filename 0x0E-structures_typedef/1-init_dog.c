@@ -1,3 +1,4 @@
+#include "dog.h"
 /**
  * init_dog -  is a function to initalize a structure to
  *	hold a dog information
