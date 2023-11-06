@@ -2,7 +2,7 @@
 #define THIS_FILE
 /**
  * struct dog - is a structure to hold information about dog @name: is the dog
- * name
+ * @name: is the dog name
  * @age: is the dog age
  * @owner: is the owner name
  */
