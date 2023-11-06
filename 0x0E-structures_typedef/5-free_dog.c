@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <stdlib.h>
+#include "dog.h"
 /**
  * free_dog - is a function to free a memory that is ocuppied
  *	by *d
