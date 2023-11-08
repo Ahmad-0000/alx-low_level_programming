@@ -1,4 +1,5 @@
 #include "function_pointers.h"
+#include <stdlib.h>
 /**
  * print_name - is a function to pass a pointer to a name
  *	to a function to handle it
@@ -8,6 +9,6 @@
 void print_name(char *name, void (*f)(char *))
 {
 	if (name == 0 || f == 0)
-		return (1);
+		exit(1);
 	(*f)(name);
 }
