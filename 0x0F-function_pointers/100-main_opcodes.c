@@ -26,4 +26,5 @@ int main(int argc, char *argv[])
 	p = (unsigned char *)main;
 	for (i = 0; i < j; i++)
 		printf(i + 1 == j ? "%02x\n" : "%02x ", p[i]);
+	return (0);
 }
