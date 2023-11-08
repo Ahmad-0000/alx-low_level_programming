@@ -11,14 +11,18 @@
 int main(int argc, char *argv[])
 {
 	int (*p)(int, int);
+	int i;
+
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+	for (i = 0; argv[2][i] != '\0'; i++)
+		;
 	p = get_op_func(argv[2]);
-	if (p == NULL)
+	if (p == NULL || i != 1)
 	{
 		printf("Error\n");
 		exit(99);
