@@ -50,8 +50,7 @@ void print_all(const char * const theFormat, ...)
 			if (c == a[j].c)
 			{
 				a[j].ptr(p);
-				if (theFormat[i + 1] != '\0')
-					printf(", ");
+				printf(", ");
 				break;
 			}
 			j++;
