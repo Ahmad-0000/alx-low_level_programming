@@ -22,8 +22,15 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 			printf(i + 1 == n ? "%d\n" : "%d", va_arg(p, int));
 		else
 		{
-			printf(i + 1 == n ? "%d\n" : "%d", va_arg(p, int));
-			printf(i + 1 == n ? "" : "%s", separator);
+			if (separator[0] != '\n')
+			{
+				printf(i + 1 == n ? "%d\n" : "%d", va_arg(p, int));
+				printf(i + 1 == n ? "" : "%s", separator);
+			}
+			else
+			{
+				printf("%d\n", va_arg(p, int));
+			}
 		}
 	}
 	va_end(p);
