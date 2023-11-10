@@ -58,23 +58,26 @@ void print_all(const char * const theFormat, ...)
 		{'s', s}
 	};
 
-	va_start(p, theFormat);
-	while (theFormat[i] != '\0')
+	if (theFormat != NULL)
 	{
-		c = theFormat[i];
-		j = 0;
-		while (j < 4)
+		va_start(p, theFormat);
+		while (theFormat[i] != '\0')
 		{
-			if (c == a[j].c)
+			c = theFormat[i];
+			j = 0;
+			while (j < 4)
 			{
-				printf("%s", theComma);
-				a[j].ptr(p);
-				theComma = ", ";
-				break;
+				if (c == a[j].c)
+				{
+					printf("%s", theComma);
+					a[j].ptr(p);
+					theComma = ", ";
+					break;
+				}
+				j++;
 			}
-			j++;
+			i++;
 		}
-		i++;
 	}
 	printf("\n");
 }
