@@ -10,7 +10,7 @@
  * Return: is to return the address of the last element of the list
  */
 
-list_t *add_node_end(list_t **h, const char str)
+list_t *add_node_end(list_t **h, const char *str)
 {
 	list_t *p, *fp;
 
