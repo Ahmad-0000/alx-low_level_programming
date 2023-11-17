@@ -27,5 +27,5 @@ list_t *add_node_end(list_t **h, const char *str)
 		fp = p;
 	else
 		fp->next = p;
-	return (p);
+	return (*h);
 }
