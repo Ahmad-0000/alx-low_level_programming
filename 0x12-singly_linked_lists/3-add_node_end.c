@@ -21,11 +21,15 @@ list_t *add_node_end(list_t **h, const char *str)
 	p->next = NULL;
 	p->str = strdup(str);
 	p->len = strlen(p->str);
-	while (fp != NULL && fp->next != NULL)
-		fp = fp->next;
 	if (fp == NULL)
-		fp = p;
+	{
+		*h = p;
+	}
 	else
+	{
+		while (fp->next != NULL)
+			fp = fp->next;
 		fp->next = p;
-	return (*h);
+	}
+	return (p);
 }
