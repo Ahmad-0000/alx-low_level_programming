@@ -21,8 +21,8 @@ list_t *add_node_end(list_t **h, const char *str)
 	p->next = NULL;
 	p->str = strdup(str);
 	p->len = strlen(p->str);
-	while (fp->next != NULL)
+	while (fp != NULL)
 		fp = fp->next;
-	fp->next = p;
+	fp = p;
 	return (p);
 }
