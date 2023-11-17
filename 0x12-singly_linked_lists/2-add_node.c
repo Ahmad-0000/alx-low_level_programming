@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "lists.h"
 
 /**
@@ -8,19 +9,17 @@
  * @str: is the string to be pointed to by the str pointer int the node
  * Return: is to return the address of the new node
  */
+
 list_t *add_node(list_t **h, const char *str)
 {
 	list_t *p;
-	int i = 0;
 
-	*p = malloc(sizeof(list_t));
+	p = malloc(sizeof(list_t));
 	if (p == NULL)
 		return (NULL);
 	p->str = strdup(str);
-	while (p->str[i] != '\0')
-		i++;
-	p->len = (unsigned int)i;
+	p->len = strlen(p->str);
 	p->next = *h;
-	*h = &p;
+	*h = p;
 	return (*h);
 }
