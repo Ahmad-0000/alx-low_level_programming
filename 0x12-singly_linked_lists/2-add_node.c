@@ -1,0 +1,26 @@
+#include <stdlib.h>
+#include "lists.h"
+
+/**
+ * add_node - is a function to add a node at the beginning
+ *	of the list_t list
+ * @h: is a pointer to a pointer to the first node of the list
+ * @str: is the string to be pointed to by the str pointer int the node
+ * Return: is to return the address of the new node
+ */
+list_t *add_node(list_t **h, const char *str)
+{
+	list_t *p;
+	int i = 0;
+
+	*p = malloc(sizeof(list_t));
+	if (p == NULL)
+		return (NULL);
+	p->str = strdup(str);
+	while (p->str[i] != '\0')
+		i++;
+	p->len = (unsigned int)i;
+	p->next = *h;
+	*h = &p;
+	return (*h);
+}
