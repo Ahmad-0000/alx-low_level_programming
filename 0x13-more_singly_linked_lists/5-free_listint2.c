@@ -1,5 +1,5 @@
 #include "lists.h"
-
+#include <stdio.h>
 /**
  * free_listint2 - is a function
  * @h: is a pointer
@@ -16,4 +16,5 @@ void free_listint2(listint_t **h)
 		tmp = *h;
 	}
 	h = NULL;
+	*h = NULL;
 }
