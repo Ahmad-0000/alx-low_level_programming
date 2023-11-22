@@ -9,9 +9,9 @@
 
 listint_t *get_nodeint_at_index(listint_t *h, unsigned int i)
 {
-	int j;
+	unsigned int j;
 
-	if (h != NULL && i >= 0)
+	if (h != NULL)
 	{
 		for (j = 1; j <= i && h->next != NULL; j++)
 			h = h->next;
