@@ -1,6 +1,5 @@
 #ifndef SINGLYLISTS
 #define SINGLYLISTS 1
-#include <stddef.h>
 #include <stdlib.h>
 /**
  * struct listint_s - is a node for a singly linked list
@@ -22,4 +21,5 @@ int pop_listint(listint_t **h);
 listint_t *get_nodeint_at_index(listint_t *h, unsigned int i);
 int sum_listint(listint_t *h);
 listint_t *insert_nodeint_at_index(listint_t **h, unsigned int idx, int n);
+int delete_nodeint_at_index(listint_t **h, unsigned int i);
 #endif
