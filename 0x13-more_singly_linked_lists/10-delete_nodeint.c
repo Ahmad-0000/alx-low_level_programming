@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "lists.h"
 /**
  * delete_nodeint_at_index - is a function to delete a node the index i
