@@ -13,11 +13,27 @@ int clear_bit(unsigned long int *n, unsigned int i)
 
 	if ((i + 1) > (sizeof(*n) * 8))
 		return (-1);
-	j = powers(2, i);
-	if (j > *n)
-		return (1);
-	*n -= j;
+	if (isNotZero(*n, i))
+		*n -= powers(2, i);
 	return (1);
+}
+
+/**
+ * isNotZero - is a function to detect if a bit is one or not
+ * @n: is a number
+ * @i: is an index
+ * Return: is tor return 1 when it's one, otherwise 0
+ */
+
+int isNotZero(unsigned long int n, unsigned int i)
+{
+	if (i == 0)
+	{
+		if (n & 1)
+			return (1);
+		return (0);
+	}
+	return (n >> 1, --i);
 }
 
 /**

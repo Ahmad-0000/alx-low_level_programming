@@ -8,4 +8,6 @@ int get_bit(unsigned long int n, unsigned int i);
 int set_bit(unsigned long int *n, unsigned int i);
 unsigned int powers(unsigned int theBase, unsigned int thePower);
 int clear_bit(unsigned long int *n, unsigned int i);
+unsigned int flip_bits(unsigned long int n, unsigned long int m);
+int isNotZero(unsigned long int n, unsigned int i);
 #endif
