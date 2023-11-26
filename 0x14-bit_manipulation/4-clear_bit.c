@@ -9,8 +9,6 @@
 
 int clear_bit(unsigned long int *n, unsigned int i)
 {
-	unsigned int j;
-
 	if ((i + 1) > (sizeof(*n) * 8))
 		return (-1);
 	if (isNotZero(*n, i))
@@ -33,7 +31,7 @@ int isNotZero(unsigned long int n, unsigned int i)
 			return (1);
 		return (0);
 	}
-	return (n >> 1, --i);
+	return (isNotZero(n >> 1, --i));
 }
 
 /**
