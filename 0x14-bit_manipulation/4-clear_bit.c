@@ -14,6 +14,8 @@ int clear_bit(unsigned long int *n, unsigned int i)
 	if ((i + 1) > (sizeof(*n) * 8))
 		return (-1);
 	j = powers(2, i);
+	if (j > *n)
+		return (1);
 	*n -= j;
 	return (1);
 }
