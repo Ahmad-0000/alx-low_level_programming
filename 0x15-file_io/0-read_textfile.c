@@ -33,7 +33,7 @@ ssize_t read_textfile(const char *filename, size_t l)
 		return (0);
 	WrittenChars = write(STDIN_FILENO, a, ReadChars);
 	close(fd);
-	if (WrittenChars == ReadChars)
-		return (WrittenChars);
-	return (0);
+	if (WrittenChars == -1)
+		return (0);
+	return (WrittenChars);
 }
