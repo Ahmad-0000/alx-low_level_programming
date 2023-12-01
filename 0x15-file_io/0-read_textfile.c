@@ -6,7 +6,8 @@
 ssize_t read_textfile(const char *filename, size_t l)
 {
 	char *a;
-	int WrittenChars = 0, fd = -1;
+	unsigned WrittenChars = 0;
+	int fd = 0;
 
 	if (filename == NULL)
 		return (0);
@@ -19,10 +20,10 @@ ssize_t read_textfile(const char *filename, size_t l)
 	WrittenChars = read(fd, a, l);
 	if (WrittenChars != l)
 		return (0);
-	fd = write(STDIN_FILENO, a, l);
+	WrittenChars = write(STDIN_FILENO, a, l);
 	close(fd);
-	if (fd == l)
-		return (fd);
+	if (WrittenChars == l)
+		return (WrittenChars);
 	return (0);
 
 }
