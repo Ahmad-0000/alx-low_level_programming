@@ -18,7 +18,7 @@ int create_file(const char *filename, char *theContent)
 	fd = open(filename, O_RDWR);
 	if (fd == -1)
 	{
-		fd = creat(filename, 600);
+		fd = creat(filename, 0600);
 	}
 	else
 	{
