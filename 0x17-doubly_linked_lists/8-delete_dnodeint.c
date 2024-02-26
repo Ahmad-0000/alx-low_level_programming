@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * delete_dondeint_at_index - is a function to delete a node from a doubly
+ * delete_dnodeint_at_index - is a function to delete a node from a doubly
  *	linked list at the index-th postion (index starts at 0).
  * @head: is a pointer to a pointer to the first node in the list.
  * @index: is the disred index.
