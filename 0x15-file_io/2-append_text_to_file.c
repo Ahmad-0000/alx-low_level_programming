@@ -9,21 +9,25 @@
  * Return: is to return 1 when success, or -1 when faliure
  */
 
-int append_text_to_file(const char *filename, char *theContent)
+int append_text_to_file(const char *filename, char *text_content)
 {
-	int fd = 0, theWriteState, theLength;
+	int fd = 0;
+    int length;
+    int written_chars;
 
-	if (filename == NULL)
-		return (-1);
-	fd = open(filename, O_APPEND);
-	if (fd == -1)
-		return (-1);
-	if (theContent == NULL)
-		return (1);
-	for (theLength = 0; theContent[theLength] != '\0'; theLength++)
-		;
-	theWriteState = write(fd, theContent, theLength);
-	if (theWriteState == -1)
-		return (-1);
-	return (1);
+    if (filename == NULL)
+        return (-1);
+    fd = open(filename, O_WRONLY | O_APPEND);
+    if (fd == -1)
+        return (-1);
+    if (text_content == NULL)
+        return (1);
+    length = 0;
+    while (text_content[length] != '\0')
+        length++;
+    written_chars = write(fd, text_content, length);
+
+    if (written_chars != length)
+        return (-1);
+    return (1);
 }
