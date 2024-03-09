@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
     {
         if (errno == ENOENT)
         {
-            fd2 = open(argv[2],O_WRONLY | O_CREAT | O_APPEND);
+            fd2 = open(argv[2],O_WRONLY | O_CREAT | O_APPEND, S_IRUSR | S_IWUSR);
                 if (fd2 == -1)
                 {
                     dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
@@ -42,8 +42,19 @@ int main(int argc, char *argv[])
     while (char_read > 0)
     {
         char_read = read(fd1, buffer, 1024);
+        if (char_read == -1)
+        {
+              dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+              exit(98);
+        }
         char_written = write(fd2, buffer, char_read);
+        if (char_written == -1)
+        {
+              dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
+              exit(99);
+        }
     }
     close(fd1);
     close(fd2);
+    return (1);
 }
