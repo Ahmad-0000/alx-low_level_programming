@@ -1,6 +1,9 @@
 #include "main.h"
 #include <unistd.h>
 #include <fcntl.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 /**
  * create_file - is a function to create a file
@@ -9,32 +12,27 @@
  * Return: is to return 1 when success, or -1 when faliure
  */
 
-int create_file(const char *filename, char *theContent)
+int create_file(const char *filename, char *text_content)
 {
-	int fd, i, theWriteState;
+	int fd, written_chars, length;
 
-	if (filename == NULL)
-		return (-1);
-	fd = open(filename, O_RDWR);
-	if (fd == -1)
-	{
-		fd = creat(filename, 0600);
-	}
-	else
-	{
-		theWriteState = ftruncate(fd, 0);
-		if (theWriteState == 0)
-			return (1);
-		return (-1);
-	}
-	if (fd == -1)
-		return (-1);
-	if (theContent == NULL)
-		return (1);
-	for (i = 0; theContent[i] != '\0'; i++)
-		;
-	theWriteState = write(fd, theContent, i);
-	if (theWriteState != i)
-		return (-1);
-	return (1);
+    fd = open(filename, O_WRONLY | O_TRUNC);
+    umask(0);
+    if (errno == ENOENT)
+    {
+        fd = open(filename, O_WRONLY | O_CREAT, S_IRUSR | S_IWUSR);
+        if (fd == -1)
+            return (-1);
+    }
+    if (fd == -1)
+        return (-1);
+    if (text_content == NULL)
+        return (1);
+    length = 0;
+    while (text_content[length] != '\0')
+        length++;
+    written_chars = write(fd, text_content, length);
+    if (written_chars != length)
+        return (-1);
+    return (1);
 }
