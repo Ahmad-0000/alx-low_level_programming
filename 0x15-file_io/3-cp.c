@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     int fd1, fd2;
     int char_read = 1;
     int char_written = 0;
+    int isclosed = 0;
 
     umask(0);
 	if (argc != 3)
@@ -37,6 +38,7 @@ int main(int argc, char *argv[])
     if (char_read == -1)
     {
         fprintf(stderr, "Error: Cant't read from file %s\n", argv[1]);
+        close(fd1);
         exit(98);
     }
     fd2 = open(argv[2], O_WRONLY | O_TRUNC);
@@ -64,16 +66,28 @@ int main(int argc, char *argv[])
         if (char_written == -1)
         {
             fprintf(stderr, "Error: Can't write to %s\n", argv[2]);
+            close(fd2);
             exit(99);
         }
         char_read = read(fd1, buffer, 1024);
         if (char_read == -1)
         {
               fprintf(stderr, "Error: Can't read from file %s\n", argv[1]);
+              close(fd1);
               exit(98);
         }
     }
-    close(fd1);
-    close(fd2);
-    return (1);
+    isclosed = close(fd1);
+    if (isclosed == -1)
+    {
+        fprintf(stderr, "Can't close fd %d\n", fd1);
+        exit(100);
+    }
+    isclosed = close(fd2);
+    if (isclosed == -1)
+    {
+        fprintf(stderr, "Can't close fd %d\n", fd2);
+        exit(100);
+    }
+    return (0);
 }
