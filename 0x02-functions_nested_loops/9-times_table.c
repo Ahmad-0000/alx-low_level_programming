@@ -1,53 +1,41 @@
-#include <stdio.h>
 #include "main.h"
-int main()
-{
-	times_table();
-}
 
+/**
+ * times_table - is a function to print the time tables
+ * of 0 through 9, strating the multiplication from 0
+ * and ending in 9
+ */
 void times_table(void)
 {
-	int i , n, r , a, b;
-	
-	i = 0;
-	while (i <= 9)
+	char i = 0;
+	char j = 0;
+	char result;
+
+	while (i < 10)
 	{
-		n = 0;
-		while (n <= 9)
+		j = 0;
+		while (j < 10)
 		{
-			r = i * n;
-			if (r > 9)
+			result = i * j;
+			if (result > 9)
 			{
-				if (r % 10)
-				{
-					a = r / 10;
-					b = r % 10;
-					putchar(a + '0');
-					putchar(b + 48);
-					putchar(',');
-					putchar(' ');
-					n++;
-				}
-				else 
-				{
-					r = r / 10;
-					putchar(r + 48);
-					putchar('0');
-					putchar(',');
-					putchar(' ');
-					n++;
-				}
+				_putchar(' ');
+				_putchar(result / 10 + '0');
+				_putchar(result % 10 + '0');
+				_putchar(j == 9 ? '\n' : ',');
 			}
 			else
 			{
-				putchar(r + '0');
-				putchar(',');
-				putchar(' ');
-				n++;
+				if (j != 0)
+				{
+					_putchar(' ');
+					_putchar(' ');
+				}
+				_putchar(result + '0');
+				_putchar(j == 9 ? '\n' : ',');
 			}
-
-		}	
-		putchar('\n');
+			j++;
+		}
 		i++;
 	}
 }
