@@ -1,9 +1,9 @@
 #include <stdio.h>
 
 /**
-* main - causes and infinite loop in a prticular case
-* Return: is to return 0
-*/
+ * main - causes and infinite loop in a prticular case
+ * Return: is to return 0
+ */
 
 int main(void)
 {
