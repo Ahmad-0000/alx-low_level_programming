@@ -2,7 +2,7 @@
 
 /**
 * main - causes and infinite loop in a prticular case
-* Return: is a return 
+* Return: is to return 0
 */
 
 int main(void)
@@ -13,10 +13,10 @@ int main(void)
 
 	i = 0;
 
-	while (i < 10) /*A while loop without an increment*/
+	/* while (i < 10)
 	{
 		putchar(i);
-	}
+	} */
 
 	printf("Infinite loop was avoided \\o/\n");
 
