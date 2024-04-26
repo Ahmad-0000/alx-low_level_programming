@@ -1,4 +1,6 @@
+#include <stdio.h>
 #include "main.h"
+void printing_space(int n);
 
 /**
  * print_times_table - is a function to print the time tables
@@ -22,23 +24,23 @@ void print_times_table(int n)
 			{
 				if (j != 0)
 					printing_space(3);
-				_putchar(result % 10 + '0');
-				_putchar(j == n ? '\n' : ',');
+				putchar(result % 10 + '0');
+				putchar(j == n ? '\n' : ',');
 			}
 			else if (result < 100)
 			{
 				printing_space(2);
-				_putchar(result / 10 + '0');
-				_putchar(result % 10 + '0');
-				_putchar(j == n ? '\n' : ',');
+				putchar(result / 10 + '0');
+				putchar(result % 10 + '0');
+				putchar(j == n ? '\n' : ',');
 			}
 			else
 			{
-				_putchar(' ');
-				_putchar(result / 100 + '0');
-				_putchar((result / 10) % 10 + '0');
-				_putchar(result % 10 + '0');
-				_putchar(j == n ? '\n' : ',');
+				putchar(' ');
+				putchar(result / 100 + '0');
+				putchar((result / 10) % 10 + '0');
+				putchar(result % 10 + '0');
+				putchar(j == n ? '\n' : ',');
 			}
 		}
 	}
@@ -54,5 +56,5 @@ void printing_space(int n)
 	int i;
 
 	for (i = 0; i < n; i++)
-		_putchar(' ');
+		putchar(' ');
 }
