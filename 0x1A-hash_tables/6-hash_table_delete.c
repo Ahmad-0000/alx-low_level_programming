@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include "hash_tables.h"
 
+/**
+ * hash_table_delete - a function to free all the memory associated with @ht
+ * @ht: a hash table
+ */
+
 void hash_table_delete(hash_table_t *ht)
 {
 	hash_node_t *front;
