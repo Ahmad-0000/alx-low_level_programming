@@ -18,10 +18,7 @@ void hash_table_print(const hash_table_t *ht)
 	char *key, *value;
 
 	if (!ht)
-	{
-		printf("{}\n");
 		return;
-	}
 	putchar('{');
 	for (i = 0; i < ht->size; i++)
 	{
