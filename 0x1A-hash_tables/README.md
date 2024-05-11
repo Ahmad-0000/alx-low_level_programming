@@ -14,6 +14,9 @@ array or linked list.
 
 In this project I will implement my own hash table, beside
 that I will use the method **"Separate Chaining"** to handle collisions.
+
+> [!Note]
+> I will use the algorithm **djb2** to implement the hash function
 ## Objectives
 * To know what is a hash function
 * To know what makes a hash function good
