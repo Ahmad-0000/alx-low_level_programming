@@ -13,6 +13,7 @@ void hash_table_print(const hash_table_t *ht)
 	hash_node_t *branch;
 	unsigned long int i;
 	char first = YES;
+	char again = NO;
 	const char *yes = "'%s': '%s'";
 	const char *no = ", '%s': '%s'";
 	char *key, *value;
@@ -29,15 +30,20 @@ void hash_table_print(const hash_table_t *ht)
 			printf(first ? yes : no, key, value);
 			first = NO;
 			if (ht->array[i]->next)
+				again = YES;
+		}
+	}
+	for (i = 0; i < ht->size && again; i++)
+	{
+		if (ht->array[i] && ht->array[i]->next)
+		{
+			branch = ht->array[i]->next;
+			while (branch != NULL)
 			{
-				branch = ht->array[i]->next;
-				while (branch != NULL)
-				{
-					key = branch->key;
-					value = branch->value;
-					printf(", '%s': '%s'", key, value);
-					branch = branch->next;
-				}
+				key = branch->key;
+				value = branch->value;
+				printf(", '%s': '%s'", key, value);
+				branch = branch->next;
 			}
 		}
 	}
