@@ -14,7 +14,7 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	int length, i, key_comparison = 1, updated = NOT_UPDATED;
+	int length, i, key_comparison = 1;
 	unsigned long index;
 	hash_node_t *node, *temp;
 
@@ -29,20 +29,29 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->next = NULL;
 	node->value = calloc(length + 1, sizeof(char));
 	if (!(node->value))
+	{
+		free(node);
 		return (0);
+	}
 	for (i = 0; i < length; i++)
 		node->value[i] = value[i];
 	if (ht->array[index])
 		key_comparison = strcmp(ht->array[index]->key, key);
-	if (!(ht->array[index]) || (ht->array[index] && !key_comparison))
+	if (!(ht->array[index]))
 	{
+		ht->array[index]= node;
+	}
+	else if (!key_comparison)
+	{
+		node->next = ht->array[index]->next;
+		free(ht->array[index]->value);
+		free(ht->array[index]);
 		ht->array[index] = node;
 	}
-	else
+	else if (key_comparison)
 	{
 		temp = ht->array[index];
-		updated = collision_update(temp, node);
-		if (!updated)
+		if (!update_collision(temp, node))
 		{
 			node->next = ht->array[index]->next;
 			ht->array[index]->next = node;
@@ -58,7 +67,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * Return: is to return 1 when success, otherwise, 0
  */
 
-int collision_update(hash_node_t *head, hash_node_t *node)
+int update_collision(hash_node_t *head, hash_node_t *node)
 {
 	while (head->next != NULL)
 	{
@@ -66,6 +75,8 @@ int collision_update(hash_node_t *head, hash_node_t *node)
 		{
 			node->next = head->next->next;
 			head->next = node;
+			free(head->value);
+			free(head);
 			return (UPDATED);
 		}
 		head = head->next;
