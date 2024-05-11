@@ -24,4 +24,7 @@ that I will use the method **"Separate Chaining"** to handle collisions.
 * To know what is a collision and what are the main ways of dealing with collisions in the context of a hash table
 * To know what are the advantages and drawbacks of using hash tables
 * To know what are the most common use cases of hash tables
-
+## Compile
+```
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o [hash]
+```
