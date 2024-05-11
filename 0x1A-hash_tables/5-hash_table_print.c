@@ -18,7 +18,10 @@ void hash_table_print(const hash_table_t *ht)
 	char *key, *value;
 
 	if (!ht)
+	{
 		printf("{}\n");
+		return;
+	}
 	putchar('{');
 	for (i = 0; i < ht->size; i++)
 	{
@@ -26,7 +29,7 @@ void hash_table_print(const hash_table_t *ht)
 		{
 			key = ht->array[i]->key;
 			value = ht->array[i]->value;
-			printf(first ? yes : no , key , value);
+			printf(first ? yes : no, key, value);
 			first = NO;
 			if (ht->array[i]->next)
 			{
@@ -35,7 +38,7 @@ void hash_table_print(const hash_table_t *ht)
 				{
 					key = branch->key;
 					value = branch->value;
-					printf(", '%s': '%s'", key , value);
+					printf(", '%s': '%s'", key, value);
 					branch = branch->next;
 				}
 			}
