@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include "hash_tables.h"
-#define FOUND 1
-#define NOT_FOUND 0
+#define UPDATED 1
+#define NOT_UPDATED 0
 
 /**
  * hash_table_set - is a function to add a key-value pair to @ht
@@ -14,9 +14,8 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	int length, i, key_comparison = 1, found = NOT_FOUND;
+	int length, i, key_comparison = 1, updated = NOT_UPDATED;
 	unsigned long index;
-	char *duplicated_value;
 	hash_node_t *node, *temp;
 
 	if (!ht || !key)
@@ -28,23 +27,22 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	node->key = (char *)key;
 	length = strlen(value);
 	node->next = NULL;
-	duplicated_value = calloc(length + 1, sizeof(char));
-	if (!duplicated_value)
+	node->value = calloc(length + 1, sizeof(char));
+	if (!(node->value))
 		return (0);
 	for (i = 0; i < length; i++)
-		duplicated_value[i] = value[i];
-	node->value = duplicated_value;
+		node->value[i] = value[i];
 	if (ht->array[index])
 		key_comparison = strcmp(ht->array[index]->key, key);
-	if (!(ht->array[index]) || (ht->array[index] && key_comparison))
+	if (!(ht->array[index]) || (ht->array[index] && !key_comparison))
 	{
 		ht->array[index] = node;
 	}
 	else
 	{
 		temp = ht->array[index];
-		found = collision_update(temp, node);
-		if (!found)
+		updated = collision_update(temp, node);
+		if (!updated)
 		{
 			node->next = ht->array[index]->next;
 			ht->array[index]->next = node;
@@ -66,11 +64,11 @@ int collision_update(hash_node_t *head, hash_node_t *node)
 	{
 		if (!strcmp(head->next->key, node->key))
 		{
-			node = head->next->next;
+			node->next = head->next->next;
 			head->next = node;
-			return (FOUND);
+			return (UPDATED);
 		}
 		head = head->next;
 	}
-	return (NOT_FOUND);
+	return (NOT_UPDATED);
 }
