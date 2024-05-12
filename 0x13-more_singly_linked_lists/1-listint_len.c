@@ -1,18 +1,19 @@
 #include "lists.h"
 
 /**
- * listint_len - is a function
- * @h: is a pointer
- * Return: is to return a value
+ * listint_len - is a function to return the length of a list
+ * @head: is a pointer to the first node in the list
+ * Return: is to return the length of the list
  */
-size_t listint_len(const listint_t *h)
-{
-	int i = 0;
 
-	while (h != NULL)
+size_t listint_len(const listint_t *head)
+{
+	size_t length = 0;
+
+	while (head)
 	{
-		h = h->next;
-		i++;
+		length++;
+		head = head->next;
 	}
-	return ((unsigned int)i);
+	return (length);
 }
