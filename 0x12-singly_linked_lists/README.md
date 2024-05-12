@@ -11,4 +11,7 @@ concern of this project, particularly **"Singly Linked Lists"**
 ## Objectives
 * To know when and why using linked lists vs arrays
 * To know how to build and use linked lists
-
+## Compilation
+```
+$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o [output_filename]
+```
