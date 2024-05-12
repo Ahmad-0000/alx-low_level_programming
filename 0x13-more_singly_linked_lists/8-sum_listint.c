@@ -2,18 +2,18 @@
 
 /**
  * sum_listint - is a function to sum a list
- * @h: is a pointer
+ * @head: is a pointer to the first node in the list
  * Return: is to return the result of the sum
  */
 
-int sum_listint(listint_t *h)
+int sum_listint(listint_t *head)
 {
-	int s = 0;
+	int total = 0;
 
-	while (h != NULL)
+	while (head != NULL)
 	{
-		s += h->n;
-		h = h->next;
+		total += head->n;
+		head = head->next;
 	}
-	return (s);
+	return (total);
 }
