@@ -3,7 +3,7 @@
 /**
  * get_nodeint_at_index - a function to return a pointer to the node at @index
  * @head: is a pointer to the first node in the list
- * @index: is the index of the node 
+ * @index: is the index of the node
  * Return: is to return a pointer to the node, otherwise, NULL
  */
 
