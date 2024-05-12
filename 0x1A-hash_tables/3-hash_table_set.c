@@ -18,7 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long index;
 	hash_node_t *new_node;
 
-	if (!ht || !key)
+	if (!ht || !key || !key[0])
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
 	new_node = malloc(sizeof(*new_node));
@@ -45,38 +45,38 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
  * insert_node - a specific-case function to insert @node in the @ht
  * @ht: is a hash table
  * @node: is a node to be inserted in @ht
- * @idx: is the index in which @node must be inserted
+ * @i: is the index in which @node must be inserted
  * @cmp: the result of comparision between the node key and the index node key
  */
 
-void insert_node(hash_table_t *ht, hash_node_t *node, unsigned long idx, int cmp)
+void insert_node(hash_table_t *ht, hash_node_t *node, unsigned long i, int cmp)
 {
 	hash_node_t *head;
 
-	if (!(ht->array[idx]))
+	if (!(ht->array[i]))
 	{
-		ht->array[idx] = node;
+		ht->array[i] = node;
 	}
 	else if (!cmp) /* the key are matched */
 	{
-		node->next = ht->array[idx]->next;
-		free(ht->array[idx]->value);
-		free(ht->array[idx]);
-		ht->array[idx] = node;
+		node->next = ht->array[i]->next;
+		free(ht->array[i]->value);
+		free(ht->array[i]);
+		ht->array[i] = node;
 	}
 	else if (cmp) /* the key are not matched "collision" */
 	{
-		head = ht->array[idx];
+		head = ht->array[i];
 		if (!update_collision(head, node))
 		{
-			node->next = ht->array[idx];
-			ht->array[idx] = node;
+			node->next = ht->array[i];
+			ht->array[i] = node;
 		}
 	}
 }
 
 /**
- * collision_update - is a function to update a collided node
+ * update_collision - is a function to update a collided node
  * @head: is the first node in the list
  * @node: is the node new node
  * Return: is to return 1 when success, otherwise, 0
