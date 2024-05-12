@@ -59,6 +59,12 @@ void insert_node(hash_table_t *ht, hash_node_t *node, unsigned long i, int cmp)
 	}
 	else if (!cmp) /* the key are matched */
 	{
+		if (!strcmp(node->value, ht->array[i]->value))
+		{
+			free(node->value);
+			free(node);
+			return;
+		}
 		node->next = ht->array[i]->next;
 		free(ht->array[i]->value);
 		free(ht->array[i]);
@@ -88,6 +94,12 @@ int update_collision(hash_node_t *head, hash_node_t *node)
 	{
 		if (!strcmp(head->next->key, node->key))
 		{
+			if (!strcmp(node->value, head->next->value))
+			{
+				free(node->value);
+				free(node);
+				return (UPDATED);
+			}
 			node->next = head->next->next;
 			head->next = node;
 			free(head->value);
