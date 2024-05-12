@@ -1,19 +1,19 @@
 #include "lists.h"
 
 /**
- * list_len - is a function to find the length of a list
- * @h: is a pointer to the first node in the list
+ * list_len - is a function to find the length of a singly linked list
+ * @head: is a pointer to the first node in the list
  * Return: is to return the lenght of the list
  */
 
-size_t list_len(const list_t *h)
+size_t list_len(const list_t *head)
 {
-	size_t i = 0;
+	size_t length = 0;
 
-	while (h != NULL)
+	while (head != NULL)
 	{
-		i++;
-		h = h->next;
+		length++;
+		head = head->next;
 	}
-	return (i);
+	return (length);
 }

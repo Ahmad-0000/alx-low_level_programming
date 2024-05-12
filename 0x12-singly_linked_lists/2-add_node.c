@@ -4,21 +4,21 @@
 
 /**
  * add_node - is a function to add a node at the beginning
- *	of the list_t list
- * @h: is a pointer to a pointer to the first node of the list
- * @str: is the string to be pointed to by the str pointer int the node
+ *	of a singly linked list
+ * @head: is a pointer to a pointer to the first node in the list
+ * @str: is the string to be added in the new node
  * Return: is to return the address of the new node
  */
 
-list_t *add_node(list_t **h, const char *str)
+list_t *add_node(list_t **head, const char *str)
 {
-	list_t *p;
+	list_t *ptr;
 	unsigned int i = 0;
 
-	if (h == NULL)
+	if (head == NULL)
 		return (NULL);
-	p = malloc(sizeof(list_t));
-	if (p == NULL)
+	ptr = malloc(sizeof(*ptr));
+	if (ptr == NULL)
 		return (NULL);
 	if (str == NULL)
 		p->str = NULL;
@@ -26,8 +26,8 @@ list_t *add_node(list_t **h, const char *str)
 		p->str = strdup(str);
 	while (str != NULL && str[i] != '\0')
 		i++;
-	p->len = i;
-	p->next = *h;
-	*h = p;
-	return (*h);
+	ptr->len = i;
+	ptr->next = *head;
+	*head = ptr;
+	return (*head);
 }
