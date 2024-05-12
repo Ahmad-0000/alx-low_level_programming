@@ -16,48 +16,63 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	int length, i, key_comparison = 1;
 	unsigned long index;
-	hash_node_t *node, *temp;
+	hash_node_t *new_node;
 
 	if (!ht || !key)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
-	node = malloc(sizeof(*node));
-	if (!node)
+	new_node = malloc(sizeof(*new_node));
+	if (!new_node)
 		return (0);
-	node->key = (char *)key;
+	new_node->key = (char *)key;
+	new_node->next = NULL;
 	length = strlen(value);
-	node->next = NULL;
-	node->value = calloc(length + 1, sizeof(char));
-	if (!(node->value))
+	new_node->value = calloc(length + 1, sizeof(char));
+	if (!(new_node->value))
 	{
-		free(node);
+		free(new_node);
 		return (0);
 	}
 	for (i = 0; i < length; i++)
-		node->value[i] = value[i];
+		new_node->value[i] = value[i];
 	if (ht->array[index])
 		key_comparison = strcmp(ht->array[index]->key, key);
-	if (!(ht->array[index]))
+	insert_node(ht, new_node, index, key_comparison);
+	return (1);
+}
+
+/**
+ * insert_node - a specific-case function to insert @node in the @ht
+ * @ht: is a hash table
+ * @node: is a node to be inserted in @ht
+ * @idx: is the index in which @node must be inserted
+ * @cmp: the result of comparision between the node key and the index node key
+ */
+
+void insert_node(hash_table_t *ht, hash_node_t *node, unsigned long idx, int cmp)
+{
+	hash_node_t *head;
+
+	if (!(ht->array[idx]))
 	{
-		ht->array[index]= node;
+		ht->array[idx] = node;
 	}
-	else if (!key_comparison)
+	else if (!cmp) /* the key are matched */
 	{
-		node->next = ht->array[index]->next;
-		free(ht->array[index]->value);
-		free(ht->array[index]);
-		ht->array[index] = node;
+		node->next = ht->array[idx]->next;
+		free(ht->array[idx]->value);
+		free(ht->array[idx]);
+		ht->array[idx] = node;
 	}
-	else if (key_comparison)
+	else if (cmp) /* the key are not matched "collision" */
 	{
-		temp = ht->array[index];
-		if (!update_collision(temp, node))
+		head = ht->array[idx];
+		if (!update_collision(head, node))
 		{
-			node->next = ht->array[index]->next;
-			ht->array[index]->next = node;
+			node->next = ht->array[idx];
+			ht->array[idx] = node;
 		}
 	}
-	return (1);
 }
 
 /**
