@@ -1,21 +1,24 @@
 #include <stdio.h>
 #include "lists.h"
-/**
- * print_listint - is a function
- * @h: is a pointer
- * Return: is to return a value
- */
-size_t print_listint(const listint_t *h)
-{
-	int i = 0;
+#include <stddef.h>
 
-	if (h == NULL)
+/**
+ * print_listint - is a function to print a singly linked list
+ * @head: is a pointer to the first node in the list
+ * Return: is to return the length of the linked list
+ */
+
+size_t print_listint(const listint_t *head)
+{
+	size_t length = 0;
+
+	if (!head)
 		return (0);
-	while (h != NULL)
+	while (head)
 	{
-		printf("%d\n", h->n);
-		h = h->next;
-		i++;
+		printf("%d\n", head->n);
+		length++;
+		head = head->next;
 	}
-	return ((unsigned int)i);
+	return (length);
 }
