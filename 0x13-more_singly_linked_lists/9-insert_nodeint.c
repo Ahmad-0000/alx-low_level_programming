@@ -1,47 +1,47 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - is a function
- * @h: is a pointer to the head
- * @idx: is the index
+ * insert_nodeint_at_index - is a function to insert a node at the index @idx
+ * @head: is a pointer to the first node of the list
+ * @idx: is the index, starts at 0
  * @n: is the data part in the node
  * Return: is to return the address of the new node, or NULL when faliure
  */
 
-listint_t *insert_nodeint_at_index(listint_t **h, unsigned int idx, int n)
+listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
 	unsigned int i;
-	listint_t *p;
-	listint_t *theNode;
+	listint_t *ptr;
+	listint_t *new_node;
 
-	if (h == NULL)
+	if (head == NULL)
 		return (NULL);
-	p = *h;
-	theNode = malloc(sizeof(listint_t));
-	if (theNode == NULL)
+	ptr = *head;
+	new_node = malloc(sizeof(*new_node));
+	if (new_node == NULL)
 		return (NULL);
-	theNode->n = n;
-	theNode->next = NULL;
+	new_node->n = n;
+	new_node->next = NULL;
 	if (idx == 0)
 	{
-		if (*h == NULL)
+		if (*head == NULL)
 		{
-			return (*h = theNode);
+			return (*head = new_node);
 		}
 		else
 		{
-			theNode->next = *h;
-			return (*h = theNode);
+			new_node->next = *head;
+			return (*head = new_node);
 		}
 	}
-	for (i = 1; p->next != NULL && i < idx; i++)
-		p = p->next;
+	for (i = 1; ptr->next != NULL && i < idx; i++)
+		ptr = ptr->next;
 	if ((i > idx && (i - 1) == idx) || i == idx)
 	{
-		theNode->next = p->next;
-		theNode->n = n;
-		p->next = theNode;
-		return (theNode);
+		new_node->next = ptr->next;
+		new_node->n = n;
+		ptr->next = new_node;
+		return (new_node);
 	}
 	return (NULL);
 }
