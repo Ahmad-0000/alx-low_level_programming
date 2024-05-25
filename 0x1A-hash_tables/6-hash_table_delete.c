@@ -24,14 +24,17 @@ void hash_table_delete(hash_table_t *ht)
 			{
 				back = front;
 				front = front->next;
+				free(back->key);
 				free(back->value);
 				free(back);
 			}
+			free(ht->array[i]->key);
 			free(ht->array[i]->value);
 			free(ht->array[i]);
 		}
 		else if (ht->array[i])
 		{
+			free(ht->array[i]->key);
 			free(ht->array[i]->value);
 			free(ht->array[i]);
 		}
