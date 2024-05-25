@@ -16,7 +16,7 @@
 
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
-	int length, i, key_comparison = 1;
+	int key_comparison = 1;
 	unsigned long index;
 	hash_node_t *new_node;
 
@@ -39,17 +39,20 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
 		return (0);
-	new_node->key = (char *)key;
-	new_node->next = NULL;
-	length = strlen(value);
-	new_node->value = calloc(length + 1, sizeof(char));
-	if (!(new_node->value))
+	new_node->key = strdup(key);
+	if (!(new_node->key))
 	{
 		free(new_node);
 		return (0);
 	}
-	for (i = 0; i < length; i++)
-		new_node->value[i] = value[i];
+	new_node->next = NULL;
+	new_node->value = strdup(value);
+	if (!(new_node->value))
+	{
+		free(new_node->key);
+		free(new_node);
+		return (0);
+	}
 	if (ht->array[index])
 		key_comparison = strcmp(ht->array[index]->key, key);
 	insert_node(ht, new_node, index, key_comparison);
