@@ -37,5 +37,4 @@ char *hash_table_get(const hash_table_t *ht, const char *key);
 void hash_table_print(const hash_table_t *ht);
 void hash_table_delete(hash_table_t *ht);
 void insert_node(hash_table_t *ht, hash_node_t *node, unsigned long i, int c);
-int check_collision(hash_node_t *second, const char *value);
 #endif

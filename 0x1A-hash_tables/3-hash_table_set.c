@@ -115,14 +115,3 @@ int update_collision(hash_node_t *head, hash_node_t *node)
 	}
 	return (NOT_UPDATED);
 }
-
-int check_collision(hash_node_t *second, const char *value)
-{
-	while (second)
-	{
-		if (!strcmp(second->value, value))
-			return (FOUND);
-		second = second->next;
-	}
-	return (NOT_FOUND);
-}
