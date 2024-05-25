@@ -3,6 +3,8 @@
 #include "hash_tables.h"
 #define UPDATED 1
 #define NOT_UPDATED 0
+#define FOUND 1
+#define NOT_FOUND 0
 
 /**
  * hash_table_set - is a function to add a key-value pair to @ht
@@ -21,6 +23,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht || !key || !key[0] || !value)
 		return (0);
 	index = key_index((const unsigned char *)key, ht->size);
+	if (ht->array[index])
+	{
+		if (!strcmp(ht->array[index]->key, key))
+		{
+			if (!strcmp(ht->array[index]->value, value))
+				return (1);
+		}
+		else
+		{
+			if(check_collision(ht->array[index]->next, value))
+				return (1);
+		}
+	}
 	new_node = malloc(sizeof(*new_node));
 	if (!new_node)
 		return (0);
@@ -109,4 +124,15 @@ int update_collision(hash_node_t *head, hash_node_t *node)
 		head = head->next;
 	}
 	return (NOT_UPDATED);
+}
+
+int check_collision(hash_node_t *second, const char *value)
+{
+	while (second)
+	{
+		if (!strcmp(second->value, value))
+			return (FOUND);
+		second = second->next;
+	}
+	return (NOT_FOUND);
 }
