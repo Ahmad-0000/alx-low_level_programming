@@ -1,8 +1,9 @@
 #include <stdio.h>
+
 /**
- * main - is the main function
- * Return: is the return
-*/
+ * main - printing some data types sizes
+ * Return: is to return 0 always
+ */
 int main(void)
 {
 	printf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(char));
@@ -11,5 +12,5 @@ int main(void)
 	printf("Size of a long long int: %lu byte(s)\n",
 			(unsigned long)sizeof(long long int));
 	printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(float));
-	
+	return 0;
 }
