@@ -2,7 +2,7 @@
 
 /**
  * main - printing all possible different combinations of three digits,
- * 	  only the smallest combination
+ * 	only the smallest combination
  * Return: to return 0
 */
 
