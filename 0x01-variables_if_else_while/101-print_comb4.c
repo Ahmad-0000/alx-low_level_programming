@@ -1,8 +1,7 @@
 #include <stdio.h>
 
 /**
- * main - printing all possible different combinations of three digits,
- * 	only the smallest combination
+ * main - to print all possible smallest different combinations of three digits
  * Return: to return 0
 */
 
