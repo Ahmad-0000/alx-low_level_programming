@@ -12,7 +12,7 @@ int main(void)
 
 	a = 0;
 	while (a < 9)
-	{	
+	{
 		b = a + 1;
 		while (b <= 9)
 		{
@@ -24,7 +24,7 @@ int main(void)
 				putchar(' ');
 			}
 			b++;
-		}	
+		}
 		a++;
 	}
 	putchar('\n');
