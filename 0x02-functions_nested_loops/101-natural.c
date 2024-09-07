@@ -18,5 +18,5 @@ int main(void)
 		i++;
 	}
 	printf("%d\n", total);
-	return 0;
+	return (0);
 }
