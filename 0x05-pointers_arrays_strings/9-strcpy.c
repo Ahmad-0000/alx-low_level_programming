@@ -1,25 +1,25 @@
 #include "main.h"
+
 /**
- * _strcpy - is a functio to concatenate two strings
- * @dest: is a pointer of the string to be concatenated to
- * @src: is a pointer to the string to be concatenated
+ * _strcpy - is my version of "strcpy" standard function
+ * @dest: is the destination
+ * @src: is the string to be copied
  *
- * Return: is to return a pointer to the product string
+ * Return: is to return a pointer to @dest
  */
+
 char *_strcpy(char *dest, char *src)
 {
-	int i, n;
+	int i, j;
 
 	i = 0;
-	while (src[i] != '\0')
-	{
+	while (src[i])
 		i++;
-	}
-	n = 0;
-	while (n <= i)
+	j = 0;
+	while (j <= i)
 	{
-		dest[n] = src[n];
-		n++;
+		dest[j] = src[j];
+		j++;
 	}
 	return (dest);
 }
