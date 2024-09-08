@@ -1,8 +1,10 @@
 #include "main.h"
+
 /**
  * _puts - is a function like (puts) function
- * @str: is a pointer
+ * @str: is a pointer to a string
  */
+
 void _puts(char *str)
 {
 	int i;
