@@ -15,7 +15,7 @@ int _atoi(char *s)
 			negative += 1;
 		else if (s[i] >= 48 && s[i] <= 57)
 		{
-			sum = (sum * 10) + s[i] - 48;
+			sum = (sum * 10) + (s[i] - 48);
 			if (s[i + 1] < 48 || s[i + 1] > 57)
 				break;
 		}
