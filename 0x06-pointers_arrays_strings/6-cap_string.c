@@ -11,7 +11,7 @@
 char *cap_string(char *c)
 {
 	int i, j;
-	int where = ELSE;
+	int where = FIRST_LETTER;
 	char separators[13] = {' ', '\t', '\n', ',', ';', '.', '!',
 	       	               '?', '"', '(', ')', '{','}'};
 
