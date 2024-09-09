@@ -13,7 +13,7 @@ char *cap_string(char *c)
 	int i, j;
 	int where = FIRST_LETTER;
 	char separators[13] = {' ', '\t', '\n', ',', ';', '.', '!',
-	       	               '?', '"', '(', ')', '{','}'};
+				'?', '"', '(', ')', '{', '}'};
 
 	i = 0;
 	while (c[i] != '\0')
@@ -38,7 +38,7 @@ char *cap_string(char *c)
 					goto next_letter;
 			where = ELSE;
 		}
-		next_letter:
+next_letter:
 		i++;
 	}
 	return (c);
