@@ -8,7 +8,7 @@
 void print_number(int n)
 {
 	int i, tmp = n, special = 0;
-	
+
 	if (n == -2147483648)
 	{
 		special = 1;
