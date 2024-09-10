@@ -7,28 +7,17 @@
 char *rot13(char *s)
 {
 	int i, j;
-	char a[2][26] = {
-			"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-			"abcdefghijklmnopqrstuvwxyz"
-	};
-	char a2[2][26] = {
-			"NOPQRSTUVWXYZABCDEFGHIJKLM",
-			"nopqrstuvwxyzabcdefghijklm"
-	};
+	char a[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char a2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	i = 0;
 	while (s[i])
 	{
-		for (j = 0; j < 26; j++)
+		for (j = 0; j < 52; j++)
 		{
-			if (s[i] == a[0][j])
+			if (s[i] == a[j])
 			{
-				s[i] = a2[0][j];
-				break;
-			}
-			else if (s[i] == a[1][j])
-			{
-				s[i] = a2[1][j];
+				s[i] = a2[j];
 				break;
 			}
 		}
