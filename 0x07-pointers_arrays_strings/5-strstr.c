@@ -1,24 +1,38 @@
 #include "main.h"
+#include <stddef.h>
+
 /**
- * _strstr - i
- * @haystack: a
- * @needle: a
- *
- * Return: is a return
+ * _strstr - is my version of "strstr" standard function
+ * @haystack: is a string to search in
+ * @needle: is a string to search for
+ * Return: is to return a pointer to the substring beginning or NULL
  */
+
 char *_strstr(char *haystack, char *needle)
 {
-	char *p, *n;
+	int i, j, k;
 
-	p = haystack;
-	n = needle;
-	if (p[1] == haystack[1])
+	for (i = 0; haystack[i]; i++)
 	{
-		p++;
+		if (haystack[i] == needle[0])
+		{
+			k = i;
+			j = 0;
+			while (haystack[k] && needle[j])
+			{
+				if (haystack[k] == needle[j])
+				{
+					k++;
+					j++;
+				}
+				else
+				{
+					break;
+				}
+			}
+			if (!needle[j])
+				return (&(haystack[i]));
+		}
 	}
-	if (n[1] == needle[1])
-	{
-		n++;
-	}
-	return (p);
+	return (NULL);
 }
