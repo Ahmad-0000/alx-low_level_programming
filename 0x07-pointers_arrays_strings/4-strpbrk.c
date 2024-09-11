@@ -6,7 +6,7 @@
  * @s: is a pointer to the string to search in
  * @accept: is a pointer of the string containing the accepted characters
  * Return: is to return a pointer to the first occurence to any of the
- * 	characters in "accept" in "s"
+ *	characters in "accept" in "s"
  */
 
 char *_strpbrk(char *s, char *accept)
