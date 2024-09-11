@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stddef.h>
 
 /**
  * _strpbrk - is a function analog to the standard "strpbrk" function
@@ -20,6 +21,5 @@ char *_strpbrk(char *s, char *accept)
 				return (&(s[i]));
 		i++;
 	}
-
 	return (NULL);
 }
