@@ -29,9 +29,8 @@ int myFun2(char *c, int i, int j)
  */
 int myFun(char *c, int i)
 {
-	if (c[i] == '\0')
-		return (0);
-	i = 1 + myFun(c, i + 1);
+	while (c[i])
+		i++;
 	return (i);
 }
 /**
