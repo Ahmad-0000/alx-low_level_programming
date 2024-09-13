@@ -79,6 +79,7 @@ char *ext(char *ps, int length, int *ps2)
 		i++;
 		(*ps2)++;
 	}
+	word[i] = '\0';
 	return (word);
 }
 
@@ -95,15 +96,7 @@ char **strtow(char *str)
 	if (!words || !lengths || !warray)
 		return (NULL);
 	for (i = 0; i < words; i++)
-	{
-		warray[i] = malloc(sizeof(char *));
-		if (!warray[i])
-		{
-			freeall(warray, i + 1, lengths);
-			return (NULL);
-		}
-	}
-	warray[i] = NULL;
+		warray[i] = NULL;
 	for (i = 0; str[i] == ' '; i++)
 		;
 	while (str[i])
