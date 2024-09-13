@@ -91,9 +91,11 @@ char **strtow(char *str)
 	if (!str || !(*str))
 		return (NULL);
 	words = WordsCounting(str);
+	if (!words)
+		return (NULL);
 	lengths = wlengths(str, words);
 	warray = malloc(sizeof(char *) * (words + 1));
-	if (!words || !lengths || !warray)
+	if (!lengths || !warray)
 		return (NULL);
 	for (i = 0; i < words; i++)
 		warray[i] = NULL;
