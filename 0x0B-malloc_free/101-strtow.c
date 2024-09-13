@@ -27,6 +27,8 @@ int *wlengths(char *str, int words)
 	int *lengths;
 	int i, j;
 
+	if (!words)
+		return (NULL);
 	lengths = malloc(sizeof(int) * words);
 	if (!lengths)
 		return (NULL);
@@ -52,12 +54,13 @@ int *wlengths(char *str, int words)
 	return (lengths);
 }
 
-void freeall(char **array, int size)
+void freeall(char **array, int size, int *lengths)
 {
 	int i = 0;
 
 	while (i < size)
 		free(array[i]);
+	free(lengths);
 	free(array);
 }
 
@@ -66,7 +69,7 @@ char *ext(char *ps, int length, int *ps2)
 	int i = 0;
 	char *word;
 
-	word = malloc(sizeof(*ps) * (length + 1));
+	word = malloc(sizeof(char) * (length + 1));
 	if (!word)
 		return (NULL);
 	while (i < length)
@@ -82,29 +85,21 @@ char *ext(char *ps, int length, int *ps2)
 char **strtow(char *str)
 {
 	int words, i, *lengths, j = 0;
-	char *a, **warray;
+	char **warray;
 
 	if (!str || !(*str))
 		return (NULL);
 	words = WordsCounting(str);
-	if (!words)
-		return (NULL);
-	a = malloc(sizeof(char *) * (words + 1));
 	lengths = wlengths(str, words);
 	warray = malloc(sizeof(char *) * (words + 1));
-	if (!a || !lengths || !warray)
-	{
-		free(a);
-		free(lengths);
-		free(warray);
+	if (!words || !lengths || !warray)
 		return (NULL);
-	}
 	for (i = 0; i < words; i++)
 	{
 		warray[i] = malloc(sizeof(char *));
 		if (!warray[i])
 		{
-			freeall(warray, i + 1);
+			freeall(warray, i + 1, lengths);
 			return (NULL);
 		}
 	}
@@ -115,11 +110,15 @@ char **strtow(char *str)
 		if (str[i] != ' ')
 		{
 			warray[j] = ext(&(str[i]), lengths[j], &i);
+			if (!warray[j])
+			{
+				freeall(warray, words, lengths);
+				return (NULL);
+			}
 			j++;
 		}
 		else
 			i++;
-	free(a);
 	free(lengths);
 	return (warray);
 }
