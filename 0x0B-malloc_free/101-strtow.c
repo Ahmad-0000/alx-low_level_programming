@@ -87,6 +87,8 @@ char **strtow(char *str)
 	if (!str || !(*str))
 		return (NULL);
 	words = WordsCounting(str);
+	if (!words)
+		return (NULL);
 	a = malloc(sizeof(char *) * (words + 1));
 	lengths = wlengths(str, words);
 	warray = malloc(sizeof(char *) * (words + 1));
