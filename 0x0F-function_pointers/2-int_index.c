@@ -12,7 +12,7 @@ int int_index(int *theArray, int theSize, int (*cmp)(int))
 {
 	int i;
 
-	if (theArray == 0 || cmp == 0 || theSize <= 0)
+	if (!theArray || !cmp || !theSize)
 		return (-1);
 	for (i = 0; i < theSize; i++)
 		if (cmp(theArray[i]))
