@@ -11,8 +11,6 @@
 int main(int argc, char *argv[])
 {
 	int (*p)(int, int);
-	int i = 1;
-
 
 	if (argc != 4)
 	{
@@ -20,9 +18,12 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	if (argv[2][1] != '\0')
-		i = 0;
+	{
+		printf("Error\n");
+		exit(99);
+	}
 	p = get_op_func(argv[2]);
-	if (p == NULL || i == 0)
+	if (!p)
 	{
 		printf("Error\n");
 		exit(99);
