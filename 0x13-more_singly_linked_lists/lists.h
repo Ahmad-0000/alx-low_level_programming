@@ -14,6 +14,19 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * struct tracker - a singly linked list to track addresses of nodes in
+ * a listint_t list
+ * @ptr: a node in listint_t list address
+ * @next: to point to the next node in tracklist_t
+ */
+
+typedef struct tracker
+{
+	const listint_t *ptr;
+	struct tracker *next;
+} tracklist_t;
+
 size_t print_listint(const listint_t *head);
 size_t listint_len(const listint_t *head);
 listint_t *add_nodeint(listint_t **head, const int n);
