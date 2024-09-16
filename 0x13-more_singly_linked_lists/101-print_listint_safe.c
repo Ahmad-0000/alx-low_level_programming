@@ -89,15 +89,15 @@ size_t print_listint_safe(const listint_t *head)
 	while (head->next)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
-		nodes_num++;
 		head = head->next;
 		dup = checkloop(thead, head);
 		if (dup)
 		{
 			printf("-> [%p] %d\n", (void *)head, head->n);
 			freetracker(thead);
-			exit(98);
+			return (nodes_num);
 		}
+		nodes_num++;
 	}
 	freetracker(thead);
 	return (++nodes_num);
