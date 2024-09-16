@@ -4,7 +4,7 @@
  * free_listint_safe - is a function to free a list safely (including lists
  * with loops)
  * @h: is a pointer to the pointer to the first node in the list
- * Return: is to return the number of the nodes 
+ * Return: is to return the number of the nodes
  */
 
 size_t free_listint_safe(listint_t **h)
