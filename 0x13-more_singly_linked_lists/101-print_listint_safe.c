@@ -2,18 +2,6 @@
 #include <stdio.h>
 
 /**
- * struct tracker - a singly linked list to track addresses of nodes in
- * a listint_t list
- * @ptr: a node in listint_t list address
- * @next: to point to the next node in tracklist_t
- */
-
-typedef struct tracker {
-	const listint_t *ptr;
-	struct tracker *next;
-} tracklist_t;
-
-/**
  * freetracker - is a function to free a list of type tracklist_t
  * @head: is a pointer to the first node in the list
  */
@@ -21,6 +9,7 @@ typedef struct tracker {
 void freetracker(tracklist_t *head)
 {
 	tracklist_t *temp;
+
 	if (!head)
 		return;
 	temp = head;
