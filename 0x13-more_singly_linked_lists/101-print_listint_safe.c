@@ -44,7 +44,7 @@ int checkloop(tracklist_t *head, const listint_t *ptr)
 {
 	tracklist_t *temp;
 
-	if (!head)
+	if (!head || !ptr)
 		return (0);
 	temp = head;
 	while (head->next)
@@ -84,19 +84,19 @@ size_t print_listint_safe(const listint_t *head)
 	if (!thead)
 		exit(98);
 	thead->next = NULL;
-	thead->ptr = NULL;
+	thead->ptr = head;
 	nodes_num = 0;
 	while (head)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
-		loop = checkloop(thead, head);
+		nodes_num++;
+		loop = checkloop(thead, head->next);
 		if (loop)
 		{
-			printf("-> [%p] %d\n", (void *)head, head->n);
+			printf("-> [%p] %d\n", (void *)head, head->next->n);
 			freetracker(thead);
 			return (nodes_num);
 		}
-		nodes_num++;
 		head = head->next;
 	}
 	freetracker(thead);
