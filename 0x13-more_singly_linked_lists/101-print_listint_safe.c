@@ -75,7 +75,7 @@ int checkloop(tracklist_t *head, const listint_t *ptr)
 
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t dup, nodes_num = 0;
+	size_t loop, nodes_num = 0;
 	tracklist_t *thead;
 
 	if (!head)
@@ -86,19 +86,19 @@ size_t print_listint_safe(const listint_t *head)
 	thead->next = NULL;
 	thead->ptr = NULL;
 	nodes_num = 0;
-	while (head->next)
+	while (head)
 	{
 		printf("[%p] %d\n", (void *)head, head->n);
-		head = head->next;
-		dup = checkloop(thead, head);
-		if (dup)
+		loop = checkloop(thead, head);
+		if (loop)
 		{
 			printf("-> [%p] %d\n", (void *)head, head->n);
 			freetracker(thead);
 			return (nodes_num);
 		}
 		nodes_num++;
+		head = head->next;
 	}
 	freetracker(thead);
-	return (++nodes_num);
+	return (nodes_num);
 }
