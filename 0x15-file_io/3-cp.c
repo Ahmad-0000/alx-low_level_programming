@@ -17,10 +17,7 @@
 int main(int argc, char *argv[])
 {
 	char buffer[1024];
-	int fd1, fd2;
-	int char_read;
-	int char_written;
-	int isclosed;
+	int fd1, fd2, char_read, char_written;
 
 	umask(0);
 	if (argc != 3)
