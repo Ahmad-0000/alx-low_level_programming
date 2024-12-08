@@ -9,4 +9,4 @@ $(NAME): $(OBJ)
 	$(CC) -o $(NAME) $(OBJ)
 
 $(OBJ): $(SRC) m.h
-	$(CC) -c -o $(OBJ) $(SRC)
+	$(CC) -c $(SRC)
