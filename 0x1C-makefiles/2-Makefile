@@ -3,10 +3,10 @@ SRC = main.c school.c
 OBJ = $(SRC:%.c=%.o)
 NAME = school
 
-all: $(NAME) 
+all: ${NAME}
 
-$(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) 
+$(NAME): ${OBJ}
+	$(CC) -o $(NAME) ${OBJ}
 
-$(OBJ): $(SRC) m.h
-	$(CC) -c $(SRC)
+%.o: %.c m.h
+	$(CC) -c $<
