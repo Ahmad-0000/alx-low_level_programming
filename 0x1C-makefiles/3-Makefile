@@ -18,11 +18,11 @@ clean:
 	rm -f *~ ${NAME}
 
 oclean:
-	rm -f main.o school.o
+	rm -f ${OBJ}
 
 fclean:
 	rm -f *~ ${NAME}
-	rm -f main.o school.o
+	rm -f ${OBJ}
 
 re: ${OBJ}
 	rm -f ${OBJ}
