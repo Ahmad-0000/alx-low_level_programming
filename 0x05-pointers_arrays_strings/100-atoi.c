@@ -21,7 +21,7 @@ int _atoi(char *s)
 	{
 		if (sign % 2 == 0)
 		{
-			result = result * multiplyer + s[i] - 48;
+			result = result * multiplyer + (s[i] - 48);
 		}
 		else
 		{
