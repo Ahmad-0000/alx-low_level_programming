@@ -6,22 +6,29 @@
 
 int _atoi(char *s)
 {
-	int i, sum, negative;
+	int result = 0;
+	int multiplyer = 1;
+	int i = 0;
+	int sign = 0; /* Times of '-' appearance */
 
-	i = negative = sum = 0;
-	while (s[i])
+	while (s[i] && (s[i] < '0' || s[i] > '9'))
 	{
 		if (s[i] == '-')
-			negative += 1;
-		else if (s[i] >= 48 && s[i] <= 57)
-		{
-			sum = (sum * 10) + (s[i] - 48);
-			if (s[i + 1] < 48 || s[i + 1] > 57)
-				break;
-		}
+			sign++;
 		i++;
 	}
-	if (negative % 2)
-		return (-sum);
-	return (sum);
+	while (s[i] && (s[i] >= '0' && s[i] <= '9'))
+	{
+		if (sign % 2 == 0)
+		{
+			result = result * multiplyer + s[i] - 48;
+		}
+		else
+		{
+			result = result * multiplyer - (s[i] - 48);
+		}
+		multiplyer = 10;
+		i++;
+	}
+	return result;
 }
