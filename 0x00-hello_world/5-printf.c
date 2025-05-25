@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
- * main - is my main function.
- * Return: is a return
+ * main - demonstrating "printf" function
+ * Return: is to return 0 always
 */
 int main(void)
 {

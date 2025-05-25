@@ -29,10 +29,9 @@ int myFun2(char *c, int i, int j)
  */
 int myFun(char *c, int i)
 {
-	if (c[i] == '\0')
+	if (!c[i])
 		return (0);
-	i = 1 + myFun(c, i + 1);
-	return (i);
+	return (1 + myFun(c, i + 1));
 }
 /**
  * is_palindrome - is a function to the start the process of

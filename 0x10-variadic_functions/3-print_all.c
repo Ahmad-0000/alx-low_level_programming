@@ -47,7 +47,7 @@ void f(va_list p)
  */
 void print_all(const char * const theFormat, ...)
 {
-	int i = 0, j;
+	int i, j;
 	va_list p;
 	char c;
 	char *theComma = "";
@@ -57,8 +57,10 @@ void print_all(const char * const theFormat, ...)
 		{'i', in},
 		{'s', s}
 	};
+
 	va_start(p, theFormat);
-	while (theFormat != NULL && theFormat[i] != '\0')
+	i = 0;
+	while (theFormat && theFormat[i])
 	{
 		c = theFormat[i];
 		j = 0;

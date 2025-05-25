@@ -1,14 +1,13 @@
 #include <stdio.h>
 
 /**
- * main - is my main function
- * Return: is a return
+ * main - demonstrarting "puts" function
+ * Return: is to return 0 always
 */
 int main(void)
 {
 	char n[] = "\"Programming is like building a multilingual puzzle";
 
 	puts(n);
-	// It seems like when using (puts), the program automatically
-		// returns 0 .
+	return (0);
 }

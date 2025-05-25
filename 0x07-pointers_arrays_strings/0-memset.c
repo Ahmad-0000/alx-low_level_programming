@@ -5,7 +5,7 @@
  * @b: is the constant character to fill with
  * @n: is the number of the times (b) will be filled in the array
  *
- * Return: is to return a pinter to the manipulated array
+ * Return: is to return a pinter to the filled array
  */
 char *_memset(char *s, char b, unsigned int n)
 {

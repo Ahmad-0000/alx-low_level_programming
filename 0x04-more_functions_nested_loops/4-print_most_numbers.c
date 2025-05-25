@@ -1,7 +1,10 @@
 #include "main.h"
+
 /**
- * print_most_numbers - is a function to print 8 numbers
+ * print_most_numbers - is a function to print numbers from 0 to 9 except
+ * 2 and 4
  */
+
 void print_most_numbers(void)
 {
 	int i = 0;
