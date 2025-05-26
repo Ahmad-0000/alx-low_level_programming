@@ -9,7 +9,7 @@ int interpolation_search(int *array, size_t size, int value)
         return -1;
     l = 0;
     h = size - 1;
-    while (l < h && l < size)
+    while (l < h)
     {
         pos = l + (((double)(h - l) / (array[h] - array[l])) * (value - array[l]));
         if (pos >= size)
